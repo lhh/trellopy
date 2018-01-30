@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from urllib import quote_plus
 from .actions import Actions
 from .boards import Boards
@@ -25,7 +26,6 @@ class TrelloApi(object):
         self.organizations = Organizations(apikey, token)
         self.tokens = Tokens(apikey, token)
         self.types = Types(apikey, token)
-        
 
     def set_token(self, token):
         self._token = token
@@ -39,7 +39,6 @@ class TrelloApi(object):
         self.organizations._token = token
         self.tokens._token = token
         self.types._token = token
-        
 
     def get_token_url(self, app_name, expires='30days', write_access=True):
         return 'https://trello.com/1/authorize?key=%s&name=%s&expiration=%s&response_type=token&scope=%s' % (self._apikey, quote_plus(app_name), expires, 'read,write' if write_access else 'read')

@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 import json
 import requests
+
 
 class Organizations(object):
     __module__ = 'trello'
@@ -77,5 +79,3 @@ class Organizations(object):
         resp = requests.delete("https://trello.com/1/organizations/%s" % (org_id_or_name), params=dict(key=self._apikey, token=self._token), data=None)
         resp.raise_for_status()
         return json.loads(resp.content)
-
-    

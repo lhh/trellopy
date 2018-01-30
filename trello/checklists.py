@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 import json
 import requests
+
 
 class Checklists(object):
     __module__ = 'trello'
@@ -67,5 +69,3 @@ class Checklists(object):
         resp = requests.delete("https://trello.com/1/checklists/%s/checkItems/%s" % (checklist_id, idCheckItem), params=dict(key=self._apikey, token=self._token), data=None)
         resp.raise_for_status()
         return json.loads(resp.content)
-
-    
